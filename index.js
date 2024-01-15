@@ -5,13 +5,15 @@ async function sendMessage(slackWebhookUrl, releaseMessage) {
   const text = {
     text: releaseMessage
   }
+
+  const output = text.replace(/\r\n|\r|\n/g, "\\n");
   
   const response = await fetch(slackWebhookUrl, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
     },
-    body: JSON.stringify(text)
+    body: JSON.stringify(output)
   })
 
   return response
