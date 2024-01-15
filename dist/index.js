@@ -10,7 +10,7 @@ const fetch = __webpack_require__(547)
 
 async function sendMessage(slackWebhookUrl, releaseMessage) {
   const text = {
-    text: releaseMessage
+    text: 'test'
   }
   
   const response = await fetch(slackWebhookUrl, {
@@ -18,7 +18,7 @@ async function sendMessage(slackWebhookUrl, releaseMessage) {
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
     },
-    body: 'test'
+    body: text
   })
 
   return response
