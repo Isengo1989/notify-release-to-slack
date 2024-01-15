@@ -18,7 +18,7 @@ async function sendMessage(slackWebhookUrl, releaseMessage) {
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
     },
-    body: text
+    body: 'test'
   })
 
   return response
