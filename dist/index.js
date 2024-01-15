@@ -9,8 +9,9 @@ const core = __webpack_require__(352)
 const fetch = __webpack_require__(547)
 
 async function sendMessage(slackWebhookUrl, releaseMessage) {
-  const text = {
-    text: 'test'
+    const output = releaseMessage.replace(/\r\n|\r|\n/g, "\\n");
+    const text = {
+    text: output
   }
   
   const response = await fetch(slackWebhookUrl, {
