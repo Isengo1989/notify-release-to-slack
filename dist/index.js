@@ -11,7 +11,7 @@ const fetch = __webpack_require__(547)
 async function sendMessage(slackWebhookUrl, releaseMessage) {
 
     const regex = /<!-- Release notes generated using configuration in .github\/release.yml at (v[\d.]+) -->/g;
-    const exchangedTitle = releaseMessage.replace(regex, (match, version) => `*New version ${version} available \n\n\n*`);
+    const exchangedTitle = releaseMessage.replace(regex, (match, version) => `*New version ${version} available* \n\n\n`);
     
     const text = {
     text: exchangedTitle.replace(/\\n/g,"\n")
