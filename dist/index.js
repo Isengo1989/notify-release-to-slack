@@ -14,7 +14,7 @@ async function sendMessage(slackWebhookUrl, releaseMessage) {
     const exchangedTitle = releaseMessage.replace(regex, (match, version) => `:github: *New version ${version} available* \n\n`);
     
     const text = {
-    text: exchangedTitle.replace(/\\n/g,"\n")
+    text: '####################\n' + exchangedTitle.replace(/\\n/g,"\n") + '####################\n'
   }
   
   const response = await fetch(slackWebhookUrl, {
