@@ -4,7 +4,7 @@ const fetch = require('node-fetch')
 async function sendMessage(slackWebhookUrl, releaseMessage) {
   const output = releaseMessage.replace(/\r\n|\r|\n/g, "\\n");
   const text = {
-    text: output
+    text: "test"
   }
 
   
