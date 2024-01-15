@@ -2,18 +2,18 @@ const core = require('@actions/core')
 const fetch = require('node-fetch')
 
 async function sendMessage(slackWebhookUrl, releaseMessage) {
+  const output = releaseMessage.replace(/\r\n|\r|\n/g, "\\n");
   const text = {
-    text: releaseMessage
+    text: output
   }
 
-  const output = text.replace(/\r\n|\r|\n/g, "\\n");
   
   const response = await fetch(slackWebhookUrl, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
     },
-    body: output
+    body: text
   })
 
   return response
